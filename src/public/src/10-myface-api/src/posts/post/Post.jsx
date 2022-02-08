@@ -1,4 +1,5 @@
 import React from "react";
+import { PostInfo } from "../postInfo/PostInfo";
 
 export function Post( {post }) {
     return (
@@ -8,6 +9,11 @@ export function Post( {post }) {
                 src={post.imageUrl}
                 alt={post.message}
                 />
+                {
+                    post.postedBy !== undefined 
+                    ? <PostInfo post={post}/>
+                    :<p></p>
+                }
         </div>
     )
 }

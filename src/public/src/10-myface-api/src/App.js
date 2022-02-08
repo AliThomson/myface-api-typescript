@@ -7,7 +7,7 @@ import { UserDetailPage } from './users/userDetailPage/UserDetailPage';
 function App() {
   return (
     <div className="App">
-      <UserDetailPage/>
+      <PostListPage/>
     </div>
   );
 }
