@@ -1,20 +1,21 @@
 import React, { useState, useEffect} from "react";
 import { User } from "../user/User";
 import { PostList } from "../../posts/postList/PostList";
+import { useParams } from "react-router-dom";
 
 export function UserDetailPage() {
-
+    const params = useParams();
     const [userDetails, setUser] = useState();
-    let userId = 50;
+    
 
     useEffect(
         function() {
-            fetch(`http://localhost:3001/users/${userId}}`)
+            fetch(`http://localhost:3001/users/${params.userId}`)
                 .then(response => response.json())
                 .then(userJson => setUser(userJson));
                 
         },
-        []
+        [params.userId]
     );
 
     return (

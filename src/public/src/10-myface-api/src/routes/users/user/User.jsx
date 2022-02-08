@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './user.css';
 
 export function User( {user }) {
@@ -10,7 +11,9 @@ export function User( {user }) {
                 width="400"
                 height="400"
                 />
-            <h2>{user.name}</h2>
+            <Link to={`/users/${user.id}`}>
+                <h2>{user.name}</h2>
+                </Link>
             <img className="profile-image"
                 src={user.profileImageUrl}
                 alt={user.name}
