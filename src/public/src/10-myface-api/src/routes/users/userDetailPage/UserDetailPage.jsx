@@ -4,18 +4,18 @@ import { PostList } from "../../posts/postList/PostList";
 import { useParams } from "react-router-dom";
 
 export function UserDetailPage() {
-    const params = useParams();
+    const parUserId = useParams();
     const [userDetails, setUser] = useState();
     
 
     useEffect(
         function() {
-            fetch(`http://localhost:3001/users/${params.userId}`)
+            fetch(`http://localhost:3001/users?page=${parUserId.userId}`)
                 .then(response => response.json())
                 .then(userJson => setUser(userJson));
                 
         },
-        [params.userId]
+        [parUserId.userId]
     );
 
     return (

@@ -16,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/posts/" element={<PostListPage />} />
             <Route path="/users/" element={<UserListPage />} />
+            <Route path="/users?page=:pageNumber" element={<UserListPage />} />
             <Route path="/users/:userId" element={<UserDetailPage/>} />
           </Routes>
         
@@ -25,3 +26,5 @@ function App() {
 }
 
 export default App;
+
+
