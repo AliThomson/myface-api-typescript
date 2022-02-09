@@ -1,11 +1,12 @@
 import React from "react";
 import { PostInfo } from "../postInfo/PostInfo";
+import "./Post.scss";
 
 export function Post( {post }) {
     return (
         <div className="post">
             <h2>{post.message}</h2>
-            <img
+            <img 
                 src={post.imageUrl}
                 alt={post.message}
                 />

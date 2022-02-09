@@ -1,0 +1,11 @@
+@import "../../../constants.scss";
+
+.post {
+    background-color: $darkerBackground;
+    h2 {
+        
+        font-size: $mobile-subtitle-font-size;
+        line-height: $mobile-subtitle-line-height;
+    }
+    
+}

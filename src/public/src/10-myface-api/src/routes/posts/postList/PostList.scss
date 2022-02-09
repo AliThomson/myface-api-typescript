@@ -1,0 +1,16 @@
+@import "../../../constants.scss";
+
+.postList {
+    background-color: $darkerBackground;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 80vw;
+    
+        h2 {
+            
+            font-size: $mobile-subtitle-font-size;
+            line-height: $mobile-subtitle-line-height;
+        }
+    
+}

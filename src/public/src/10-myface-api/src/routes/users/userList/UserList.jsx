@@ -1,6 +1,6 @@
 import React from "react";
 import { User } from "../user/User";
-import './userList.css';
+import './userList.scss';
 
 export function UserList ({ userList }) {
     return (

@@ -7,14 +7,9 @@ export function Navbar() {
         <div className="navbar">
             <header>
                 <h1>My-Face!</h1>
-                <nav
-                    style={{
-                    borderBottom: "solid 1px",
-                    paddingBottom: "1rem"
-                }}
-                >
-                <Link to="/users">Users</Link> |{" "}
-                <Link to="/posts">Posts</Link>
+                <nav>
+                    <Link to="/users">Users</Link> |{" "}
+                    <Link to="/posts">Posts</Link>
 
                 </nav>
             </header>

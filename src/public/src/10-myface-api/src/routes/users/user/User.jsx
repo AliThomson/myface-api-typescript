@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './user.css';
+import './user.scss';
 
 export function User( {user }) {
     return (
