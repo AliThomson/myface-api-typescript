@@ -1,36 +1,54 @@
 import React, { useState, useEffect} from "react";
 import { useSearchParams, Link } from "react-router-dom";
+import { getUsers } from "../../../clients/myFaceClients";
 import { UserList } from "../userList/UserList";
 
 export function UserListPage() {
+
     const [searchParams] = useSearchParams();
-    let pageNumber = Number(searchParams.get("page"));
-    pageNumber = (pageNumber === undefined) ? 1: pageNumber;
-    
- 
+    const pageNumber = searchParams.get("page");
+    const pageSize = searchParams.get("pageSize");
+
     const [userList, setUserList] = useState();
+    const [nextUrl, setNextUrl] = useState();
+    const [previousUrl, setPreviousUrl] = useState();
+    
 
     useEffect(
         function() {
-            fetch(`http://localhost:3001/users?page=${pageNumber}`)
-                .then(response => response.json())
-                .then(userListJson => setUserList(userListJson.results));
+            getUsers(pageNumber, pageSize)
+                .then(usersResults => {
+                    setUserList(usersResults.results);
+                    setNextUrl(usersResults.next);
+                    setPreviousUrl(usersResults.previous);
+                });
         },
-        [pageNumber]
+        [pageNumber, pageSize]
     );
+
+    const nextPrevLinks = <div>
+    {
+        previousUrl
+            ? <Link className="page-arrow" to={previousUrl}>⬅</Link> 
+            : <></>
+    }
+    {
+        nextUrl
+            ? <Link className="page-arrow" to={nextUrl}>➡</Link>
+            : <></>
+    }
+</div>
 
     return (
         <main>
             <h2>MyFace: Users</h2>
-                {
-                    userList !== undefined 
+            {nextPrevLinks}
+            {
+                userList !== undefined
                     ? <UserList userList={userList} />
                     : <p>Loading users...</p>
-                }
-            <div>
-             <Link to={`/users?page=${pageNumber - 1 }`}>Previous</Link> {      }
-             <Link to={`/users?page=${pageNumber + 1}`}>Next</Link>
-            </div>
+            }
+
         </main>
     )
 }

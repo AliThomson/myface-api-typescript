@@ -14,13 +14,17 @@ export function User( {user }) {
             <Link to={`/users/${user.id}`}>
                 <h2>{user.name}</h2>
                 </Link>
-            <img className="profile-image"
+            <img 
                 src={user.profileImageUrl}
                 alt={user.name}
                 />
+            <div>
             <p>{user.email}</p>
             <p>Liked: {user.likes.length}</p>
             <p>Disliked: {user.dislikes.length}</p>
+            
+            </div>
+
             
         </div>
     )

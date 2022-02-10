@@ -10,7 +10,7 @@ export function UserDetailPage() {
 
     useEffect(
         function() {
-            fetch(`http://localhost:3001/users?page=${parUserId.userId}`)
+            fetch(`http://localhost:3001/users/${parUserId.userId}`)
                 .then(response => response.json())
                 .then(userJson => setUser(userJson));
                 
