@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="user"
+>
+  <img
+    alt="ALing"
+    className="cover-image"
+    height="400"
+    width="400"
+  />
+  <a
+    href="/users/undefined"
+    onClick={[Function]}
+  >
+    <h2>
+      ALing
+    </h2>
+  </a>
+  <img
+    alt="ALing"
+    src="Profile Image url"
+  />
+  <div>
+    <p>
+      ling@softwire.com
+    </p>
+    <p />
+    <p />
+  </div>
+</div>
+`;

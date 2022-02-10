@@ -8,17 +8,17 @@ export function User( {user }) {
             <img className="cover-image"
                 src={user.coverImageUrl}
                 alt={user.name}
-                width="400"
-                height="400"
+                // width="400"
+                // height="400"
                 />
-            <Link to={`/users/${user.id}`}>
+            <Link className="user-name" to={`/users/${user.id}`}>
                 <h2>{user.name}</h2>
                 </Link>
-            <img 
+            <img className="user-image"
                 src={user.profileImageUrl}
                 alt={user.name}
                 />
-            <div>
+            <div className="user-info">
                 <p>{user.email}</p>
 
                 {user.likes !== undefined

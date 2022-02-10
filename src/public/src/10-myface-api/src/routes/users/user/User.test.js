@@ -1,47 +1,65 @@
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import { Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { User } from "./User";
 
-test("renders message", () => {
+test("renders name", async () => {
   // Arrange
   const user = {
     name: "ALing",
-    profileImageUrl: "Profile Image url",
-    email: "ling@softwire.com",
-    // postedBy: {
-    //   name: "User name",
-    // },
   };
 
   // Act
-  render(<User user={user} />);
+  render(<BrowserRouter><User user={user} /></BrowserRouter>);
   const nameElement = screen.getByText(/ALing/i);
-  const ImageElement = screen.getByText(/Profile Image url/i);
-  const EmailElement = screen.getByText(/ling@softwire.com/i);
-
+  
   // Assert
   expect(nameElement).toBeInTheDocument();
-  expect(ImageElement).toBeInTheDocument();
-  expect(EmailElement).toBeInTheDocument();
 });
 
-test("matches snapshot", () => {
+test("renders image url", async () => {
   // Arrange
   const user = {
     name: "ALing",
     profileImageUrl: "Profile Image url",
     email: "ling@softwire.com",
-    // postedBy: {
-    //   name: "User name",
-    // },
   };
+
+  // Act
+  render(<BrowserRouter><User user={user} /></BrowserRouter>);
+  const imageElement = screen.getByText(/Profile Image url/i);
+  
+  // Assert
+  expect(imageElement).toBeInTheDocument();
+});
+
+test("renders email", async () => {
+  // Arrange
+  const user = {
+    email: "ling@softwire.com",
+  };
+
+  // Act
+  render(<BrowserRouter><User user={user} /></BrowserRouter>);
+  const emailElement = screen.getByText(/ling@softwire.com/i);
+
+  // Assert
+ expect(emailElement).toBeInTheDocument();
+});
+
+test("matches snapshot", async () => {
+  // Arrange
+  const user = {
+    name: "ALing",
+    profileImageUrl: "Profile Image url",
+    email: "ling@softwire.com",
+    };
 
   // Act
   const tree = renderer
-    .create(<User user={user} />)
+    .create(<BrowserRouter><User user={user} /></BrowserRouter>)
     .toJSON();
-
+    
   // Assert
   expect(tree).toMatchSnapshot();
 });
