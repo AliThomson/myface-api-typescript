@@ -19,12 +19,16 @@ export function User( {user }) {
                 alt={user.name}
                 />
             <div>
-            <p>{user.email}</p>
-            <p>Liked: {user.likes.length}</p>
-            <p>Disliked: {user.dislikes.length}</p>
-            
-            </div>
+                <p>{user.email}</p>
 
+                {user.likes !== undefined
+                    ? <p> Liked: {user.likes.length} </p>
+                    : <p></p>}
+
+                {user.dislikes !== undefined
+                    ? <p> Disliked: {user.dislikes.length} </p>
+                    : <p></p>}
+            </div>
             
         </div>
     )
