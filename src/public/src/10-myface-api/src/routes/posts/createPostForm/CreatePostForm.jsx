@@ -5,9 +5,10 @@ export function CreatePostForm() {
     const [message, setMessage] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
-    return <form onSubmit={() => {       
-            createPost(message, imageUrl);
-    }
+    return <form onSubmit={e => {
+        e.preventDefault();       
+        createPost(message, imageUrl);
+            }
         }>
         <p>Message: {message} ImageURL: {imageUrl}</p>
         <label for="message">Message</label>
@@ -21,8 +22,9 @@ export function CreatePostForm() {
         <input
             type="text" 
             id="imageUrl" 
-            name="imageUrl" onChange={e => setImageUrl(e.target.value)}
+            name="imageUrl" 
+            onChange={e => setImageUrl(e.target.value)}
             />
-        <input type="button" value="Submit" />
+        <input type="submit" value="Submit" />
     </form>
 }
