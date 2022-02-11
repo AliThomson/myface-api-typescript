@@ -5,6 +5,7 @@ import { PostListPage } from './routes/posts/postListPage/PostListPage';
 import { UserListPage } from './routes/users/userListPage/UserListPage';
 import { UserDetailPage } from './routes/users/userDetailPage/UserDetailPage';
 import { Navbar } from './routes/navbar/Navbar';
+import { CreatePostPage } from './routes/posts/createPostPage/CreatePostPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         
           <Routes>
             <Route path="/posts/" element={<PostListPage />} />
+            <Route path="/posts/create" element={<CreatePostPage />} />
             <Route path="/users/" element={<UserListPage />} />
             <Route path="/users?page=:pageNumber" element={<UserListPage />} />
             <Route path="/users/:userId" element={<UserDetailPage/>} />
