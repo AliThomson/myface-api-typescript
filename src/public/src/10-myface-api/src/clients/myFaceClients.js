@@ -47,3 +47,15 @@ export async function createPost(message, imageUrl) {
         throw new Error ("Could not create post");
     }
 }
+export async function likePost(postId) {
+    const url = `http://localhost:3001/posts/${postId}/like`;
+    const response = await fetch(
+        url,
+        {
+            method: "POST",
+        }
+    );
+    if (!response.ok) {
+        throw new Error("Could not like post");
+    }
+}
