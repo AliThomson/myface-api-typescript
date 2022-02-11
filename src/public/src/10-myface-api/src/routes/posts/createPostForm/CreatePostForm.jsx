@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { createPost } from "../../../clients/myFaceClients";
+import { Route, useNavigate } from "react-router-dom";
+
 
 export function CreatePostForm() {
     const [message, setMessage] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+    const navigate = useNavigate();
 
     return <form onSubmit={e => {
         e.preventDefault();       
         createPost(message, imageUrl);
+        alert('Submitted!');
+        navigate("/posts");
             }
         }>
         <p>Message: {message} ImageURL: {imageUrl}</p>

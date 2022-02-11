@@ -1,0 +1,28 @@
+@import "../../../constants.scss";
+
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 10px;
+    padding: 0;
+}
+
+.post-info {
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.post-image {
+    object-fit: cover;
+    height: 200px;
+}
+
+@media (min-width: 600px) {
+    .post-info {
+        flex-basis: calc(33% - 20px);
+    }
+}
