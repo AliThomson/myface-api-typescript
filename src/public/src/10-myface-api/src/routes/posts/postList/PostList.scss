@@ -4,8 +4,17 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    object-fit: cover;
+    width: 84vw;
     margin: auto; 
+
+        li {
+            width: calc((84vw - 6em)/3);
+            padding: 0.5em;
+            margin: 0.5em;
+        }
 
     
         h2 {

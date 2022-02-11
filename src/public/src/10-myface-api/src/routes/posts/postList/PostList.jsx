@@ -6,7 +6,7 @@ export function PostList ({ postList }) {
     return (
         <ol className="postList">
             {postList.map((post, index) =>
-                <li key={index}>
+                <li className="postList" key={index}>
                     <Post post={post} />
                 </li>)}
         </ol>
